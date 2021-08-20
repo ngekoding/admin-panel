@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.4",
-    "change-case": "^4.1.2",
     "vue": "^3.0.5"
   },
   "devDependencies": {
@@ -24,6 +23,7 @@
     "husky": "^7.0.1",
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.7",
-    "vite": "^2.4.4"
+    "vite": "^2.4.4",
+    "vite-plugin-components": "^0.13.2"
   }
 }

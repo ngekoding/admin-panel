@@ -10,18 +10,54 @@
     </header>
     <!-- Menu -->
     <div class="px-5 mt-14">
-      <menu-header>Menu</menu-header>
-      <menu-item icon="home">Home</menu-item>
-      <menu-item icon="view-grid">Accounts</menu-item>
-      <menu-item icon="credit-card">Cards</menu-item>
-      <menu-item icon="users">Contacts</menu-item>
-      <menu-item icon="calculator">Loan Calculator</menu-item>
-      <menu-item icon="cog">Settings</menu-item>
+      <menu-header text="Menu" />
+      <menu-item text="Home">
+        <template #icon>
+          <home-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
+      <menu-item text="Accounts">
+        <template #icon>
+          <view-grid-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
+      <menu-item text="Cards">
+        <template #icon>
+          <credit-card-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
+      <menu-item icon="hio-users" text="Contacts">
+        <template #icon>
+          <users-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
+      <menu-item text="Loan Calculator">
+        <template #icon>
+          <calculator-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
+      <menu-item text="Settings">
+        <template #icon>
+          <cog-icon-o class="menu-item-icon" />
+        </template>
+      </menu-item>
 
-      <menu-header class="mt-10">Scheduled Payments</menu-header>
-      <menu-item icon="check-circle" icon-class="text-blue-400">Monthly Rent</menu-item>
-      <menu-item icon="check-circle" icon-class="text-red-400">Food Payment</menu-item>
-      <menu-item icon="check-circle" icon-class="text-green-400">Utility Bills</menu-item>
+      <menu-header class="mt-10" text="Scheduled Payments" />
+      <menu-item text="Monthly Rent">
+        <template #icon>
+          <check-circle-icon-o class="menu-item-icon text-blue-400" />
+        </template>
+      </menu-item>
+      <menu-item text="Food Payment">
+        <template #icon>
+          <check-circle-icon-o class="menu-item-icon text-red-400" />
+        </template>
+      </menu-item>
+      <menu-item text="Utility Bills">
+        <template #icon>
+          <check-circle-icon-o class="menu-item-icon text-green-400" />
+        </template>
+      </menu-item>
     </div>
   </div>
 </template>
@@ -33,7 +69,13 @@ export default {
   name: 'Sidebar',
   components: {
     MenuHeader,
-    MenuItem,
+    MenuItem
   }
 }
 </script>
+
+<style>
+.menu-item-icon {
+  @apply w-5 h-5 text-gray-400 mr-4;
+}
+</style>
