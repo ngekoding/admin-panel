@@ -6,6 +6,7 @@
     "website": "ngekoding.github.io"
   },
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
