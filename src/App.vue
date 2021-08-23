@@ -1,12 +1,9 @@
 <template>
-  <layout />
+  <router-view />
 </template>
 
 <script>
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
 export default {
-  components: {
-    'layout': DefaultLayout
-  }
+  name: 'App'
 }
 </script>
