@@ -5,7 +5,7 @@
   <div class="min-h-screen">
     <navbar />
     <!-- Content -->
-    <div class="ml-64 pt-14 px-5">
+    <div class="lg:ml-64 pt-14 px-5">
       <div class="container mx-auto my-5">
         <router-view />
       </div>
