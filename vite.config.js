@@ -32,6 +32,9 @@ export default defineConfig(({ mode }) => {
           replacement: path.resolve(__dirname, './src')
         }
       ]
+    },
+    server: {
+      port: 3000
     }
   }
 })
