@@ -1,5 +1,18 @@
 <template>
-  <div class="fixed top-0 w-64 h-screen border-r border-gray-200 overflow-y-auto bg-white">
+  <!-- Toggle sidebar button -->
+  <button class="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 lg:hidden">
+    <menu-alt-4-icon-s 
+      class="btn-toggle"
+      :class="{'opacity-0': sidebarShown}"
+      @click="toggleSidebar" />
+    <x-icon-s 
+      class="btn-toggle"
+      :class="{'opacity-0': !sidebarShown}"
+      @click="toggleSidebar" />
+  </button>
+  <!-- Overlay -->
+  <div class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden" :class="{'hidden': !sidebarShown}"></div>
+  <div class="fixed z-40 left-0 top-0 right-24 lg:right-auto lg:w-64 h-screen border-r border-gray-200 overflow-y-auto bg-white" :class="{'hidden': allowSidebarHidden && !sidebarShown}">
     <!-- Header -->
     <header class="flex items-center pt-10 px-5">
       <img src="@/assets/logo.svg" alt="Logo" class="w-10">
@@ -49,12 +62,46 @@
 import MenuHeader from '@/components/layouts/SidebarMenuHeader.vue'
 import MenuItem from '@/components/layouts/SidebarMenuItem.vue'
 import MenuItemSub from '@/components/layouts/SidebarMenuItemSub.vue'
+import { vueWindowSizeMixin } from 'vue-window-size/option-api'
 export default {
   name: 'Sidebar',
+  mixins: [vueWindowSizeMixin()],
   components: {
     MenuHeader,
     MenuItem,
     MenuItemSub,
+  },
+  data() {
+    return {
+      widthBreakpoint: 1024, // Tailwind 'lg' breakpoint
+      sidebarShown: false
+    }
+  },
+  watch: {
+    $windowWidth(val) {
+      if (val < this.widthBreakpoint) { 
+        this.sidebarShown = false
+      }
+    },
+    $route() {
+      this.sidebarShown = false
+    }
+  },
+  computed: {
+    allowSidebarHidden() {
+      return this.$windowWidth < this.widthBreakpoint;
+    }
+  },
+  methods: {
+    toggleSidebar() {
+      this.sidebarShown = !this.sidebarShown
+    }
   }
 }
 </script>
+
+<style scoped>
+.btn-toggle {
+  @apply absolute w-6 h-6 text-white left-1/2 top-1/2 transition duration-300 transform -translate-x-1/2 -translate-y-1/2;
+}
+</style>
