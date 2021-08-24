@@ -13,13 +13,13 @@
       <chevron-down-icon-s 
         v-if="subMenuExists" 
         class="w-5 h-5 text-gray-400 transform transition duration-100"
-        :class="{'rotate-180': subMenuShown}" />
+        :class="{'rotate-180': showSubMenu}" />
     </div>
   </div>
   <div 
     v-if="subMenuExists" 
     class="pl-9 h-0 overflow-hidden"
-    :class="{'h-auto': subMenuShown}">
+    :class="{'h-auto': showSubMenu}">
     <slot name="sub-menu" />
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
       heroIconsOutline: HeroIconsOutline,
       heroIconsSolid: HeroIconsSolid,
       activeMenu: false,
-      subMenuShown: false,
+      showSubMenu: false,
     }
   },
   watch: {
@@ -64,7 +64,7 @@ export default {
       handler(val) {
         const active = !!val;
         this.activeMenu = active;
-        if (this.subMenuExists) this.subMenuShown = active;
+        if (this.subMenuExists) this.showSubMenu = active;
       }
     },
     activeMenu(val) {
@@ -100,7 +100,7 @@ export default {
     },
     toggleSubMenu() {
       if (!this.subMenuExists) return
-      this.subMenuShown = !this.subMenuShown
+      this.showSubMenu = !this.showSubMenu
     },
     setActiveMenu(val) {
       this.activeMenu = val
