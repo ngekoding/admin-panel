@@ -1,8 +1,8 @@
 <template>
   <!-- Sidebar -->
-  <sidebar />
+  <sidebar @visibility-change="visible => visibleResponsiveSidebar = visible" />
   <!-- Content Container-->
-  <div class="min-h-screen">
+  <div class="min-h-screen" :class="{'overflow-hidden max-h-screen': visibleResponsiveSidebar}">
     <navbar />
     <!-- Content -->
     <div class="lg:ml-64 pt-14 px-5">
@@ -20,6 +20,11 @@ export default {
   components: {
     Sidebar,
     Navbar
+  },
+  data() {
+    return {
+      visibleResponsiveSidebar: false
+    }
   }
 }
 </script>

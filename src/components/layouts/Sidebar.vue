@@ -3,16 +3,16 @@
   <button class="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 lg:hidden">
     <menu-alt-4-icon-s 
       class="btn-toggle"
-      :class="{'opacity-0': sidebarShown}"
+      :class="{'opacity-0': showSidebar}"
       @click="toggleSidebar" />
     <x-icon-s 
       class="btn-toggle"
-      :class="{'opacity-0': !sidebarShown}"
+      :class="{'opacity-0': !showSidebar}"
       @click="toggleSidebar" />
   </button>
   <!-- Overlay -->
-  <div class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden" :class="{'hidden': !sidebarShown}"></div>
-  <div class="fixed z-40 left-0 top-0 right-24 lg:right-auto lg:w-64 h-screen border-r border-gray-200 overflow-y-auto bg-white" :class="{'hidden': allowSidebarHidden && !sidebarShown}">
+  <div class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden" :class="{'hidden': !showSidebar}"></div>
+  <div class="fixed z-40 left-0 top-0 right-24 lg:right-auto lg:w-64 h-screen border-r border-gray-200 overflow-y-auto bg-white" :class="{'hidden': allowSidebarHide && !showSidebar}">
     <!-- Header -->
     <header class="flex items-center pt-10 px-5">
       <img src="@/assets/logo.svg" alt="Logo" class="w-10">
@@ -74,27 +74,30 @@ export default {
   data() {
     return {
       widthBreakpoint: 1024, // Tailwind 'lg' breakpoint
-      sidebarShown: false
+      showSidebar: false
     }
   },
   watch: {
     $windowWidth(val) {
       if (val < this.widthBreakpoint) { 
-        this.sidebarShown = false
+        this.showSidebar = false
       }
     },
     $route() {
-      this.sidebarShown = false
+      this.showSidebar = false
+    },
+    showSidebar(val) {
+      this.$emit('visibility-change', val)
     }
   },
   computed: {
-    allowSidebarHidden() {
+    allowSidebarHide() {
       return this.$windowWidth < this.widthBreakpoint;
     }
   },
   methods: {
     toggleSidebar() {
-      this.sidebarShown = !this.sidebarShown
+      this.showSidebar = !this.showSidebar
     }
   }
 }
