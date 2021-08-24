@@ -85,6 +85,10 @@ export default {
     },
     $route() {
       this.showSidebar = false
+    },
+    showSidebar(val) {
+      console.log('changed', val)
+      this.$emit('visibility-change', val)
     }
   },
   computed: {
