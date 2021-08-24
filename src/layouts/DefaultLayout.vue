@@ -2,7 +2,7 @@
   <!-- Sidebar -->
   <sidebar @visibility-change="visible => visibleResponsiveSidebar = visible" />
   <!-- Content Container-->
-  <div class="min-h-screen" :class="{'overflow-hidden max-h-screen': visibleResponsiveSidebar}">
+  <div class="min-h-screen" :class="{'overflow-hidden max-h-screen fixed': visibleResponsiveSidebar}">
     <navbar />
     <!-- Content -->
     <div class="lg:ml-64 pt-14 px-5">

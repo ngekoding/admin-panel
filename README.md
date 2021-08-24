@@ -24,7 +24,15 @@ Patterns:
 - `{name}-icon-o` for outline icon
 - `{name}-icon-s` for solid icon
 
-Examples: `home-icon-o`, `external-link-icon-s`
+Examples: 
+
+```vue
+<home-icon-o class="w-6 h-6 text-gray-500" />
+```
+
+```vue
+<external-link-icon-s class="w-6 h-6 text-gray-500" />
+```
 
 Note for `menu-item` component, you just need to use the prop to define the icon. For example:
 
