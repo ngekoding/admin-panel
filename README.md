@@ -40,4 +40,16 @@ Note for `menu-item` component, you just need to use the prop to define the icon
 <menu-item icon="cube-icon-o" text="Components" :route="{name: 'components'}">
 ```
 
+## Screenshots
+
+Here is some screenshots. And please note, because this project is still in progress, you can found the latest update on [demo page](https://ngekoding.github.io/admin-panel).
+
+Hope you love it!
+
+![Home](./screenshots/home.png)
+
+![Dropdown Example](./screenshots/dropdown-example.png)
+
+![Icon Example](./screenshots/icon-example.png)
+
 Powered by ngekoding.github.io
