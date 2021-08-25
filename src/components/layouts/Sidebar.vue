@@ -27,8 +27,28 @@
       <menu-item icon="lightning-bolt-icon-o" text="Getting Started" :route="{name: 'dev-getting-started'}" />
       <menu-item icon="cube-icon-o" text="Components">
         <template #sub-menu>
-          <menu-item-sub text="Tables" :route="{name: 'dev-components-tables'}" />
-          <menu-item-sub text="Forms" :route="{name: 'dev-components-forms'}" />
+          <menu-item-sub text="Icon" />
+          <menu-item-sub text="Button" />
+          <menu-item-sub text="Dropdown" :route="{name: 'dev-components-dropdown'}" />
+          <menu-item-sub text="Card" />
+          <menu-item-sub text="Table" :route="{name: 'dev-components-tables'}" />
+          <menu-item-sub text="Tooltip" />
+          <menu-item-sub text="Modal" />
+          <!-- Form components -->
+          <menu-item-sub-header text="Form" />
+          <menu-item-sub text="Input" />
+          <menu-item-sub text="Textarea" />
+          <menu-item-sub text="Select" />
+          <menu-item-sub text="Checkbox" />
+          <menu-item-sub text="Radio" />
+          <menu-item-sub text="Switch" />
+          <menu-item-sub text="Date Picker" />
+          <menu-item-sub text="Time Picker" />
+          <!-- Notice components -->
+          <menu-item-sub-header text="Notice" />
+          <menu-item-sub text="Alert" />
+          <menu-item-sub text="Notification" />
+          <menu-item-sub text="Confirmation Dialog" />
         </template>
       </menu-item>
 
@@ -62,14 +82,17 @@
 import MenuHeader from '@/components/layouts/SidebarMenuHeader.vue'
 import MenuItem from '@/components/layouts/SidebarMenuItem.vue'
 import MenuItemSub from '@/components/layouts/SidebarMenuItemSub.vue'
+import MenuItemSubHeader from '@/components/layouts/SidebarMenuItemSubHeader.vue'
 import { vueWindowSizeMixin } from 'vue-window-size/option-api'
 export default {
   name: 'Sidebar',
   mixins: [vueWindowSizeMixin()],
+  emits: ['visibility-change'],
   components: {
     MenuHeader,
     MenuItem,
     MenuItemSub,
+    MenuItemSubHeader,
   },
   data() {
     return {
