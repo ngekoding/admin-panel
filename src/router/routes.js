@@ -15,6 +15,11 @@ const routes = [
         component: () => import('@/pages/developments/GettingStarted.vue')
       },
       {
+        path: 'dev/components/icon',
+        name: 'dev-components-icon',
+        component: () => import('@/pages/developments/icon/IconExample.vue')
+      },
+      {
         path: 'dev/components/dropdown',
         name: 'dev-components-dropdown',
         component: () => import('@/pages/developments/dropdown/DropdownExample.vue')
