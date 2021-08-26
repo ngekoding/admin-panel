@@ -1,6 +1,6 @@
 <template>
-  <div class="relative z-10">
-    <div class="inline-block" @click="open = !open">
+  <div class="relative inline-block" @mouseleave="leave">
+    <div class="inline-block" @click="click()" @mouseover="hover">
       <slot name="default" />
     </div>
     <transition
@@ -10,7 +10,7 @@
       leave-from-class="opacity-100 scale-100"
       leave-active-class="transition duration-150 ease-in-quad"
       leave-to-class="opacity-0 scale-75">
-      <div v-if="open" v-click-away="() => open = false" @click="bodyClick" class="transform w-52 py-2 absolute bg-white border border-gray-200 rounded-md" :class="extraBodyClass">
+      <div v-if="open" v-click-away="() => open = false" @click="bodyClick" class="transform w-52 py-2 absolute z-10 bg-white border border-gray-200 rounded-md" :class="extraBodyClass">
         <slot name="body" />
       </div>
     </transition>
@@ -37,6 +37,13 @@ export default {
     },
     hideOnClick: {
       type: Boolean
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(value) {
+        return ['click', 'hover'].includes(value)
+      }
     }
   },
   emits: ['show', 'hide'],
@@ -71,6 +78,15 @@ export default {
     }
   },
   methods: {
+    click() {
+      if (this.trigger == 'click') this.open = !this.open
+    },
+    hover() {
+      if (this.trigger == 'hover') this.open = true
+    },
+    leave() {
+      if (this.trigger == 'hover') this.open = false
+    },
     bodyClick() {
       if (this.hideOnClick) this.open = false
     }
