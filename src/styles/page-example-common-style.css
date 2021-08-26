@@ -1,0 +1,25 @@
+.page-example > h1 {
+  @apply text-2xl font-medium mb-1;
+}
+.page-example > h2 {
+  @apply text-xl font-medium mb-1;
+}
+.page-example > h3 {
+  @apply text-lg font-medium mb-1;
+}
+.page-example > p {
+  @apply text-base text-gray-800;
+}
+.page-example > p + p {
+  @apply mt-4;
+}
+.page-example > a,
+.page-example > p a {
+  @apply text-purple-600 hover:text-purple-700;
+}
+.page-example > code,
+.page-example > p code {
+  @apply bg-gray-100 px-1.5 rounded-lg text-gray-800 text-sm font-mono;
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+}

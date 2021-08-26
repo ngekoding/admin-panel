@@ -1,19 +1,16 @@
 <template>
-  <h1 class="text-2xl font-medium mb-1">Dropdown</h1>
-  <p class="text-base text-gray-800">Toggleable menu for displaying lists of links and actions.</p>
+  <div class="page-example">
+    <h1>Dropdown</h1>
+    <p>Toggleable menu for displaying lists of links and actions.</p>
+    
+    <h2 class="mt-8">Basic usage</h2>
+    <p>Click on the dropdown menu to unfold it for more actions.</p>
+    <code-preview-editor :source="codeBasicUsage" :components="components" />
 
-  <br>
-
-  <h2 class="text-xl font-medium mb-1">Basic usage</h2>
-  <p class="text-base text-gray-800">Click on the dropdown menu to unfold it for more actions.</p>
-  <code-preview-editor :source="codeBasicUsage" :components="components" />
-
-  <br>
-
-  <h2 class="text-xl font-medium mb-1">Menu hiding behavior</h2>
-  <p class="text-base text-gray-800">Use <span class="text-sm font-mono text-purple-500">hide-on-click</span> to define if menu closes on clicking.</p>
-  <code-preview-editor :source="codeBodyClickHide" :components="components" />
-
+    <h2 class="mt-8">Menu hiding behavior</h2>
+    <p>Use <code>hide-on-click</code> to define if menu closes on clicking.</p>
+    <code-preview-editor :source="codeBodyClickHide" :components="components" />
+  </div>
 </template>
 
 <script>

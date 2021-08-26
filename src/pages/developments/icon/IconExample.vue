@@ -1,14 +1,13 @@
 <template>
-  <h1 class="text-2xl font-medium mb-1">Icon</h1>
-  <p class="text-base text-gray-800">Admin Panel use <a href="https://heroicons.com" target="_blank" class="text-purple-500 hover:text-purple-600">Heroicons</a> as mentioned on <a href="https://tailwindcss.com/resources" target="_blank" class="text-purple-500 hover:text-purple-600">Tailwind CSS - Resources</a>.<br>And for simplicity used, I combining with <a href="https://github.com/antfu/vite-plugin-components" target="_blank" class="text-purple-500 hover:text-purple-600">vite-plugin-components</a> to make it imported on-demand.</p>
-  <br>
-  <p>Use the suffix to choose outline or solid icon, like <span class="font-mono text-sm text-purple-500">{name}-icon-s</span> for solid and <span class="font-mono text-sm text-purple-500">{name}-icon-o</span> for outline.</p>
-  
-  <br>
-
-  <h2 class="text-xl font-medium mb-1">Basic usage</h2>
-  <p class="text-base text-gray-800">Just use the icon name from Heroicons.</p>
-  <code-preview-editor :source="codeBasicUsage" :components="components" />
+  <div class="page-example">
+    <h1>Icon</h1>
+    <p>Admin Panel use <a href="https://heroicons.com" target="_blank">Heroicons</a> as mentioned on <a href="https://tailwindcss.com/resources" target="_blank">Tailwind CSS - Resources</a>.<br>And for simplicity used, I combining with <a href="https://github.com/antfu/vite-plugin-components" target="_blank">vite-plugin-components</a> to make it imported on-demand.</p>
+    <p>Use the suffix to choose outline or solid icon. The pattern is <code>{name}-icon-s</code> for solid and <code>{name}-icon-o</code> for outline.</p>
+    
+    <h2 class="mt-8">Basic usage</h2>
+    <p>Just use the icon name from Heroicons.</p>
+    <code-preview-editor :source="codeBasicUsage" :components="components" />
+  </div>
 </template>
 
 <script>
@@ -17,8 +16,11 @@ import CodePreviewEditor from '@/components/CodePreviewEditor.vue'
 
 import codeBasicUsage from './code-basic-usage'
 
-import { HomeIcon as HomeIconSolid } from '@heroicons/vue/solid'
-import { HomeIcon as HomeIconOutline } from '@heroicons/vue/outline'
+import { 
+  HomeIcon as HomeIconOutline,
+  LightBulbIcon as LightBulbIconOutline
+} from '@heroicons/vue/outline'
+import { ChartPieIcon as ChartPieIconSolid } from '@heroicons/vue/solid'
 
 export default {
   name: 'IconExample',
@@ -28,8 +30,9 @@ export default {
   data() {
     return {
       components: {
-        'home-icon-s': shallowRef(HomeIconSolid), 
         'home-icon-o': shallowRef(HomeIconOutline), 
+        'light-bulb-icon-o': shallowRef(LightBulbIconOutline), 
+        'chart-pie-icon-s': shallowRef(ChartPieIconSolid), 
       },
       codeBasicUsage: codeBasicUsage
     }
