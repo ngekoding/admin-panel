@@ -10,14 +10,9 @@
       leave-from-class="max-h-screen"
       leave-active-class="transition-all duration-300"
       leave-to-class="max-h-0">
-      <div v-if="showCode" class="relative">
+      <div v-if="showCode" class="relative border border-gray-200 border-b-0">
         <duplicate-icon-o class="absolute top-1 right-1 w-5 h-5 text-gray-400 hover:text-gray-600 cursor-pointer z-10" @click="copyCode()" />
-        <prism-editor
-          class="z-0 bg-gray-50 text-sm font-mono border border-gray-200 border-b-0"
-          v-model="code" 
-          :highlight="highlighter" 
-          line-numbers
-          readonly />
+        <highlightjs autodetect :code="code" />
       </div>
     </transition>
     <div class="group py-2 bg-white hover:bg-gray-50 cursor-pointer flex justify-center items-center border border-gray-200" @click="showCode = !showCode">
@@ -30,22 +25,16 @@
 </template>
 
 <script>
-import { PrismEditor } from 'vue-prism-editor'
-import 'vue-prism-editor/dist/prismeditor.min.css'
-
-import { highlight, languages } from 'prismjs/components/prism-core'
-import 'prismjs/themes/prism-solarizedlight.css'
-import 'prismjs/components/prism-clike'
-import 'prismjs/components/prism-markup'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-css'
+import hljs from 'highlight.js/lib/common'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
+import 'highlight.js/styles/atom-one-light.css'
 
 import { copyText } from 'vue3-clipboard'
 
 export default {
   name: 'CodePreviewEditor',
   components: {
-    PrismEditor
+    highlightjs: hljsVuePlugin.component
   },
   props: {
     source: {
@@ -80,17 +69,6 @@ export default {
     }
   },
   methods: {
-    highlighter(code) {
-      return highlight(
-        code, 
-        {
-          ...languages['markup'],
-          ...languages['js'],
-          ...languages['css'],
-        },
-        'markup'
-      )
-    },
     copyCode() {
       copyText(this.code, undefined, (err, evt) => {
         // TODO: Change using notification next time
@@ -106,18 +84,7 @@ export default {
 </script>
 
 <style>
-.prism-editor__line-numbers,
-.prism-editor__container {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
-}
-.prism-editor__editor {
-  white-space: pre !important;
-}
-.prism-editor__container {
-  overflow-x: scroll !important;
-}
-.prism-editor__textarea:focus {
-  outline: none;
+.hljs {
+  @apply text-sm;
 }
 </style>
