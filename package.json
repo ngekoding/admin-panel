@@ -20,7 +20,8 @@
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.11",
     "vue-window-size": "^1.1.2",
-    "vue3-click-away": "^1.2.1"
+    "vue3-click-away": "^1.2.1",
+    "vue3-clipboard": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
