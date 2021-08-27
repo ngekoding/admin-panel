@@ -1,8 +1,8 @@
 <template>
   <div class="relative inline-block" @mouseleave="leave">
-    <div class="inline-block" @click="click()" @mouseover="hover">
+    <span @click="click()" @mouseover="hover">
       <slot name="default" />
-    </div>
+    </span>
     <transition
       enter-from-class="opacity-0 scale-75"
       enter-active-class="transition duration-75 ease-out-quad"
