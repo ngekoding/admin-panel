@@ -11,7 +11,7 @@
       @click="toggleSidebar" />
   </button>
   <!-- Overlay -->
-  <div class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden" :class="{'hidden': !showSidebar}"></div>
+  <div class="fixed inset-0 bg-black bg-opacity-25 z-30 lg:hidden" :class="{'hidden': !showSidebar}" @click="showSidebar = false"></div>
   <div class="fixed z-40 left-0 top-0 right-24 lg:right-auto lg:w-64 h-screen border-r border-gray-200 overflow-y-auto bg-white" :class="{'hidden': allowSidebarHide && !showSidebar}">
     <!-- Header -->
     <header class="flex items-center pt-10 px-5">
