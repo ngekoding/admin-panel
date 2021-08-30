@@ -28,7 +28,7 @@
       <menu-item icon="cube-icon-o" text="Components">
         <template #sub-menu>
           <menu-item-sub text="Icon" :route="{name: 'dev-components-icon'}" />
-          <menu-item-sub text="Button" />
+          <menu-item-sub text="Button" :route="{name: 'dev-components-button'}" />
           <menu-item-sub text="Dropdown" :route="{name: 'dev-components-dropdown'}" />
           <menu-item-sub text="Card" />
           <menu-item-sub text="Table" :route="{name: 'dev-components-tables'}" />

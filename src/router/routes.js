@@ -20,6 +20,11 @@ const routes = [
         component: () => import('@/pages/developments/icon/IconExample.vue')
       },
       {
+        path: 'dev/components/button',
+        name: 'dev-components-button',
+        component: () => import('@/pages/developments/button/ButtonExample.vue')
+      },
+      {
         path: 'dev/components/dropdown',
         name: 'dev-components-dropdown',
         component: () => import('@/pages/developments/dropdown/DropdownExample.vue')
