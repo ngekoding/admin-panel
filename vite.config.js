@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       ViteComponents({
+        dirs: ['./src/components'],
         customComponentResolvers: [
           // Heroicons
           // 'S' for solid & 'O' for outline

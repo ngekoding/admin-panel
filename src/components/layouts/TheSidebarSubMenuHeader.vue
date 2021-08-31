@@ -1,12 +1,12 @@
 <template>
-  <div class="px-5 text-sm text-purple-500 font-medium my-2">
+  <div class="px-5 text-xs text-gray-300 my-2">
     {{ text }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SidebarMenuHeader',
+  name: 'SidebarSubMenuHeader',
   props: {
     text: {
       type: String,

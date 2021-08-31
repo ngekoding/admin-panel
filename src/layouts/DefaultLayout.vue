@@ -1,8 +1,10 @@
 <template>
   <!-- Sidebar -->
-  <sidebar @visibility-change="visible => visibleResponsiveSidebar = visible" />
+  <sidebar @visibility-change="onSidebarVisibilityChanged" />
   <!-- Content Container-->
-  <div class="min-h-screen" :class="{'overflow-hidden max-h-screen fixed': visibleResponsiveSidebar}">
+  <div
+    class="min-h-screen"
+    :class="{ 'overflow-hidden max-h-screen fixed': visibleResponsiveSidebar }">
     <navbar />
     <!-- Content -->
     <div class="lg:ml-64 pt-14 px-5">
@@ -14,16 +16,26 @@
 </template>
 
 <script>
-import Sidebar from '@/components/layouts/Sidebar.vue';
-import Navbar from '@/components/layouts/Navbar.vue';
+import { ref } from 'vue'
+
+import Sidebar from '@/components/layouts/TheSidebar.vue'
+import Navbar from '@/components/layouts/TheNavbar.vue'
+
 export default {
+  name: 'DefaultLayout',
   components: {
     Sidebar,
     Navbar
   },
-  data() {
+  setup() {
+    const visibleResponsiveSidebar = ref(false)
+    const onSidebarVisibilityChanged = (visible) => {
+      visibleResponsiveSidebar.value = visible
+    }
+
     return {
-      visibleResponsiveSidebar: false
+      visibleResponsiveSidebar,
+      onSidebarVisibilityChanged
     }
   }
 }
