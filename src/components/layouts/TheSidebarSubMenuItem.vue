@@ -2,19 +2,22 @@
   <div 
     class="sub-menu px-5 py-1.5 text-sm text-gray-400 font-medium cursor-default hover:text-gray-500"
     :class="{'text-gray-500': activeSubMenu}"
-    @click="onClick">{{ text }}</div>
+    @click="onClick">
+    {{ text }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'SidebarMenuItemSub',
+  name: 'TheSidebarSubMenuItem',
   props: {
     text: {
       type: String,
       required: true
     },
     route: {
-      type: Object
+      type: Object,
+      default: () => {}
     }
   },
   data() {
