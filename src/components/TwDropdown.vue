@@ -18,7 +18,11 @@
       <div 
         v-if="open"
         class="transform w-52 py-2 absolute z-10 bg-white border border-gray-200 rounded-md" 
-        :class="extraBodyClass" 
+        :class="[
+          {'origin-top-left left-0': origin == 'left'},
+          {'origin-top-right right-0': origin == 'right'},
+          bodyClass
+        ]" 
         @click="bodyClick()">
         <slot name="body" />
       </div>
@@ -27,7 +31,7 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 export default {
   name: 'TwDropdown',
@@ -63,12 +67,6 @@ export default {
       emit('hide', !newOpen.value)
     })
 
-    const extraBodyClass = computed(() => [
-      `origin-top-${props.origin}`,
-      `${props.origin}-0`,
-      props.bodyClass
-    ])
-
     const triggerClick = props.trigger === 'click'
     const triggerHover = !triggerClick
 
@@ -91,7 +89,6 @@ export default {
 
     return {
       open,
-      extraBodyClass,
       click,
       hover,
       leave,
