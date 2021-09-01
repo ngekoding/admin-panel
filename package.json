@@ -9,9 +9,7 @@
     "prepare": "husky install",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.4",
@@ -30,6 +28,7 @@
     "autoprefixer": "^10.3.1",
     "husky": "^7.0.1",
     "postcss": "^8.3.6",
+    "rollup-plugin-visualizer": "^5.5.2",
     "tailwindcss": "^2.2.7",
     "vite": "^2.4.4",
     "vite-plugin-components": "^0.13.2"
