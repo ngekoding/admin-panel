@@ -30,6 +30,11 @@ const routes = [
         component: () => import('@/pages/developments/dropdown/DropdownExample.vue')
       },
       {
+        path: 'dev/components/tooltip',
+        name: 'dev-components-tooltip',
+        component: () => import('@/pages/developments/tooltip/TooltipExample.vue')
+      },
+      {
         path: 'dev/components/form',
         name: 'dev-components-forms',
         component: () => import('@/pages/developments/forms/Index.vue')

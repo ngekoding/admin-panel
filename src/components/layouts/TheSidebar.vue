@@ -54,7 +54,7 @@
           <sub-menu-item 
             text="Table" 
             :route="{name: 'dev-components-tables'}" />
-          <sub-menu-item text="Tooltip" />
+          <sub-menu-item text="Tooltip" :route="{name: 'dev-components-tooltip'}" />
           <sub-menu-item text="Modal" />
           <!-- Form components -->
           <sub-menu-header text="Form" />
