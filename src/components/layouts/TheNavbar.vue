@@ -6,10 +6,10 @@
         class="group flex items-center mr-3 cursor-pointer" 
         @click="viewSource()">
         <span class="text-sm text-gray-600 group-hover:text-gray-800">GitHub</span>
-        <external-link-icon-o class="ml-1 w-4 h-4 text-gray-600 group-hover:text-gray-800" />
+        <tw-icon name="heroicons-outline:external-link" class="ml-1 w-4 h-4 text-gray-600 group-hover:text-gray-800" />
       </div> 
       <div class="relative flex justify-center items-center w-6 h-6 rounded-full bg-gray-200">
-        <bell-icon-s class="w-3.5 h-3.5 text-gray-600" />
+        <tw-icon name="heroicons-solid:bell" class="w-3.5 h-3.5 text-gray-600" />
         <div class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-blue-400 rounded-full" />
       </div>
       <tw-dropdown 

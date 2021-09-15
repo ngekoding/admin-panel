@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import ViteComponents from 'vite-plugin-components'
 import { visualizer } from 'rollup-plugin-visualizer'
 import path from 'path'
+import PurgeIcons from 'vite-plugin-purge-icons'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -10,22 +13,18 @@ export default defineConfig(({ mode }) => {
     base: mode === 'production' ? '/admin-panel/' : '/',
     plugins: [
       vue(),
-      ViteComponents({
+      Components({
         dirs: ['./src/components'],
-        customComponentResolvers: [
-          // Heroicons
-          // 'S' for solid & 'O' for outline
-          (name) => {
-            if (name.endsWith('IconS') || name.endsWith('IconO')) {
-              const type = name.endsWith('IconS') ? 'solid' : 'outline'
-              return { 
-                importName: name.slice(0, -1),
-                path: `@heroicons/vue/${type}` 
-              }
-            }
-          }
-        ]
-      })
+        resolvers: [
+          IconsResolver({
+            prefix: 'TwIcon'
+          })
+        ],
+      }),
+      Icons({
+        compiler: 'vue3'
+      }),
+      PurgeIcons(),
     ],
     resolve: {
       alias: [

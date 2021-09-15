@@ -1,14 +1,18 @@
 <template>
   <!-- Toggle sidebar button -->
   <button class="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 lg:hidden">
-    <menu-alt-4-icon-s 
+    <div 
       class="btn-toggle"
       :class="{'opacity-0': showSidebar}"
-      @click="toggleSidebar" />
-    <x-icon-s 
+      @click="toggleSidebar">
+      <tw-icon name="heroicons-solid:menu-alt-4" class="w-6 h-6 text-white" />
+    </div>
+    <div
       class="btn-toggle"
       :class="{'opacity-0': !showSidebar}"
-      @click="toggleSidebar" />
+      @click="toggleSidebar">
+      <tw-icon name="heroicons-solid:x" class="w-6 h-6 text-white" />
+    </div>
   </button>
 
   <!-- Sidebar Overlay -->
@@ -34,11 +38,11 @@
     <div class="mt-14">
       <menu-header text="Development" />
       <menu-item 
-        icon="lightning-bolt-icon-o" 
+        icon="heroicons-outline:lightning-bolt" 
         text="Getting Started" 
         :route="{name: 'dev-getting-started'}" />
       <menu-item 
-        icon="cube-icon-o" 
+        icon="heroicons-outline:cube" 
         text="Components">
         <template #sub-menu>
           <sub-menu-item 
@@ -79,11 +83,11 @@
         class="mt-10" 
         text="Menu" />
       <menu-item 
-        icon="home-icon-o" 
+        icon="heroicons-outline:home" 
         text="Home" 
         :route="{path: '/'}" />
       <menu-item 
-        icon="view-grid-icon-o" 
+        icon="heroicons-outline:view-grid" 
         text="Accounts">
         <template #sub-menu>
           <sub-menu-item text="PayPal" />
@@ -91,16 +95,16 @@
         </template>
       </menu-item>
       <menu-item 
-        icon="credit-card-icon-o" 
+        icon="heroicons-outline:credit-card" 
         text="Cards" />
       <menu-item 
-        icon="users-icon-o" 
+        icon="heroicons-outline:users" 
         text="Contacts" />
       <menu-item 
-        icon="calculator-icon-o" 
+        icon="heroicons-outline:calculator" 
         text="Loan Calculator" />
       <menu-item 
-        icon="cog-icon-o" 
+        icon="heroicons-outline:cog" 
         text="Settings">
         <template #sub-menu>
           <sub-menu-item text="Profile" />
@@ -113,15 +117,15 @@
         class="mt-10" 
         text="Scheduled Payments" />
       <menu-item 
-        icon="check-circle-icon-o" 
+        icon="heroicons-outline:check-circle" 
         icon-class="text-blue-400" 
         text="Monthly Rent" />
       <menu-item 
-        icon="check-circle-icon-o"
+        icon="heroicons-outline:check-circle"
         icon-class="text-red-400"
         text="Food Payment" />
       <menu-item 
-        icon="check-circle-icon-o"
+        icon="heroicons-outline:check-circle"
         icon-class="text-green-400"
         text="Utility Bills" />
     </div>
@@ -179,6 +183,6 @@ export default {
 
 <style scoped>
 .btn-toggle {
-  @apply absolute w-6 h-6 text-white left-1/2 top-1/2 transition duration-300 transform -translate-x-1/2 -translate-y-1/2;
+  @apply absolute left-1/2 top-1/2 transition duration-300 transform -translate-x-1/2 -translate-y-1/2;
 }
 </style>

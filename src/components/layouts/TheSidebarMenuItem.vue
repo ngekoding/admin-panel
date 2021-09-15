@@ -1,20 +1,26 @@
 <template>
   <div 
     class="px-5 flex items-center py-3 cursor-default"
-    :class="{'active': activeMenu, 'group hover:bg-gray-50': !activeMenu}"
+    :class="{'bg-purple-50': activeMenu, 'group hover:bg-gray-50': !activeMenu}"
     @click="onClick">
-    <component 
-      :is="iconComponent" 
+    <tw-icon 
+      :name="icon" 
       class="icon w-5 h-5 text-gray-400 group-hover:text-gray-500"
-      :class="iconClass" />
+      :class="[iconClass, {'text-purple-500': activeMenu}]" />
     <div class="pl-4 flex-grow flex items-center justify-between">
-      <div class="text text-sm text-gray-400 font-medium group-hover:text-gray-500">
+      <div 
+        class="text text-sm text-gray-400 font-medium group-hover:text-gray-500"
+        :class="{'text-purple-500': activeMenu}">
         {{ text }}
       </div>
-      <chevron-down-icon-s 
-        v-if="subMenuExists" 
-        class="w-5 h-5 text-gray-400 transform transition duration-100"
-        :class="{'rotate-180': showSubMenu}" />
+      <div 
+        v-if="subMenuExists"
+        class="transform transition duration-100"
+        :class="{'rotate-180': showSubMenu}">
+        <tw-icon
+          name="heroicons-solid:chevron-down"
+          class="w-5 h-5 text-gray-400" />  
+      </div>
     </div>
   </div>
   <div 
@@ -28,9 +34,6 @@
 <script>
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import * as HeroIconsOutline from '@heroicons/vue/outline'
-import * as HeroIconsSolid from '@heroicons/vue/solid'
-import { pascalCase } from 'change-case'
 
 export default {
   name: 'TheSidebarMenuItem',
@@ -57,12 +60,6 @@ export default {
   },
   emits: ['update:active'],
   setup(props, {emit, slots}) {
-    const iconName = pascalCase(props.icon).slice(0, -1)
-    const iconType = props.icon.endsWith('o') ? 'outline' : 'solid'
-    const iconComponent = iconType == 'outline'
-      ? HeroIconsOutline[iconName]
-      : HeroIconsSolid[iconName]
-
     const subMenuExists = computed(() => !!slots['sub-menu'])
     const showSubMenu = ref(false)
     const activeMenu = ref(false)
@@ -95,7 +92,6 @@ export default {
     }
 
     return {
-      iconComponent,
       subMenuExists,
       activeMenu,
       showSubMenu,
@@ -105,13 +101,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.active {
-  @apply bg-purple-50;
-}
-.active .icon,
-.active .text {
-  @apply text-purple-500;
-}
-</style>
