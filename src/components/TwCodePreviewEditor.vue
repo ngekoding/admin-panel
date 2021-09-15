@@ -13,7 +13,7 @@
       <div 
         v-if="showCode" 
         class="relative border border-gray-200 border-b-0">
-        <duplicate-icon-o 
+        <tw-icon name="heroicons-outline:duplicate" 
           class="absolute top-1 right-1 w-5 h-5 text-gray-400 hover:text-gray-600 cursor-pointer z-10" 
           @click="copyCode()" />
         <highlightjs 
@@ -24,7 +24,7 @@
     <div
       class="group py-2 bg-white hover:bg-gray-50 cursor-pointer flex justify-center items-center border border-gray-200"
       @click="showCode = !showCode">
-      <code-icon-o class="w-4 h-4 text-gray-500 group-hover:text-gray-700" />
+      <tw-icon name="heroicons-outline:code" class="w-4 h-4 text-gray-500 group-hover:text-gray-700" />
       <span class="ml-2 text-sm text-gray-500 group-hover:text-gray-700">
         {{ showCode ? 'Hide' : 'Show' }} Code
       </span>

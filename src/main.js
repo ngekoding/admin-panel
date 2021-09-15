@@ -1,8 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from '@/router'
+
 import '@/styles/app.css'
 import '@/styles/page-example-common-style.css'
-import router from '@/router'
+
+import '@purge-icons/generated'
 
 const app = createApp(App)
 
