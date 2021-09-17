@@ -1,37 +1,26 @@
 <template>
-  <div ref="el" class="inline"></div>
+  <component :is="icon" />
 </template>
 
 <script>
-import { ref, watch, onMounted } from 'vue'
+import { computed, defineComponent } from 'vue'
+import Iconify from '@purge-icons/generated'
+
 export default {
   name: 'TwIcon',
-  inheritAttrs: false,
   props: {
     name: {
       type: String,
       required: true
     }
   },
-  setup(props, { attrs }) {
-    const el = ref(null)
+  setup(props) {
+    const iconData = Iconify.renderHTML(props.name)
+    const icon = computed(() => defineComponent({
+      template: iconData
+    }))
 
-    const update = () => {
-      if (el.value) {
-        const span = document.createElement('span')
-        span.className = 'iconify ' + attrs.class ?? ''
-        span.dataset.icon = props.name
-        el.value.textContent = ''
-        el.value.appendChild(span)
-      }
-    }
-
-    watch(() => attrs.class, update)
-    watch(() => props.name, update)
-    
-    onMounted(update)
-
-    return { el }
+    return { icon }
   }
 }
 </script>

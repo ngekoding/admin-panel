@@ -13,14 +13,11 @@
         :class="{'text-purple-500': activeMenu}">
         {{ text }}
       </div>
-      <div 
+      <tw-icon
         v-if="subMenuExists"
-        class="transform transition duration-100"
-        :class="{'rotate-180': showSubMenu}">
-        <tw-icon
-          name="heroicons-solid:chevron-down"
-          class="w-5 h-5 text-gray-400" />  
-      </div>
+        name="heroicons-solid:chevron-down"
+        class="w-5 h-5 text-gray-400 transform transition duration-100"
+        :class="{'rotate-180': showSubMenu}" />  
     </div>
   </div>
   <div 

@@ -14,10 +14,6 @@
     <tw-code-preview-editor 
       :source="codeBasicUsage" 
       :components="components" />
-    
-    <h2 class="mt-8">You need to read me!</h2>
-    <p>If you want to animating the icon when using tw-icon component, like using transition by Tailwind. You must do it at it's parent, because the tw-icon will automatically re-render when changing the name or class.</p>
-    <p>Or you can use the second way (pattern) which supported dynamic name or class changes (without re-render).</p>
   </div>
 </template>
 

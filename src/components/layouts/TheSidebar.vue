@@ -1,18 +1,16 @@
 <template>
   <!-- Toggle sidebar button -->
-  <button class="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 lg:hidden">
-    <div 
-      class="btn-toggle"
-      :class="{'opacity-0': showSidebar}"
-      @click="toggleSidebar">
-      <tw-icon name="heroicons-solid:menu-alt-4" class="w-6 h-6 text-white" />
-    </div>
-    <div
-      class="btn-toggle"
-      :class="{'opacity-0': !showSidebar}"
-      @click="toggleSidebar">
-      <tw-icon name="heroicons-solid:x" class="w-6 h-6 text-white" />
-    </div>
+  <button 
+    class="fixed z-50 bottom-4 right-4 w-16 h-16 rounded-full bg-gray-900 lg:hidden"
+    @click="toggleSidebar">
+    <tw-icon 
+      name="heroicons-solid:menu-alt-4" 
+      class="btn-toggle w-6 h-6 text-white" 
+      :class="{'opacity-0': showSidebar}" />
+    <tw-icon 
+      name="heroicons-solid:x" 
+      class="btn-toggle w-6 h-6 text-white"
+      :class="{'opacity-0': !showSidebar}" />
   </button>
 
   <!-- Sidebar Overlay -->
